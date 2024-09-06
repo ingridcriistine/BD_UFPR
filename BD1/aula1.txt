@@ -1,1 +1,38 @@
 Postgree pg admin
+
+Desafio de atomicidade e auto-contenção (pesquisar exemplos)
+
+
+----Exercícios----
+1. Justifique o uso de Banco de Dados (BD) e o uso de Sistema Gerenciador de Banco de Dados (SGBD). Qual a diferença entre os dois?
+  O Banco de Dados é necessário para armazenar os dados inter-relacionados de um sistema, enquanto o Sistema Gerenciador de Banco de Dados é utilizado para especificar e manipular o Banco de Dados para as aplicações.
+
+2. Explique o conceito de independência de dados. Cite e explique as regras básicas de um SGBD.
+  Independência de dados é a capacidade de alterar a definição de um sistema em um nível sem afetar outro nível. 
+
+  Regras básicas do SGBD:
+  – Auto-Contenção:
+  – Independência dos Dados: 
+  – Abstração dos Dados: 
+  – Visões: 
+  – Transações:
+  – Acesso Automático:
+
+3. Diferencie e exemplifique os conceitos de esquema e instância.
+  Esquema é a estrutura que armazena os dados do banco e Instância são os dados armazenados.
+
+4. Defina e exemplifique o conceito de atomicidade.
+  A atomicidade se refere ao tratamento das transações de forma atômica, em conjunto, de modo que todas as operações sejam executadas - ou nenhuma.
+  Ex: Em uma loja online, o cliente deve escolher os produtos e efetuar o pagamento. Para a compra ser concluída, é necessário realizar de forma total essas duas operações (atomicidade), se não ocorre um erro. 
+
+5. Defina metadados e dicionário de dados.
+  - Metadados são dados sobre dados, ou seja, descrições dos dados.
+  - Dicionário de dados é uma ferramenta utilizada para documentar os detalhes de um banco de dados, como definições, termos, propriedades e características.
+
+6. Explique o papel do DBA.
+Modelar os dados, organizar a parte física do banco de dados, fazer a administração do armazenamento dos dados e monitorar as atividades.
+
+7. Quais são as características, vantagens e desvantagens de um SGBDs? Existem base de dados sem utilização de SGBDs?
+
+
+8. Pesquise no site do PubMed https://pubmed.ncbi.nlm.nih.gov/, aplicações (área, temas, usos) de banco de dados (database). Dois exemplos, coloque o nome e o objetivo da aplicação.
