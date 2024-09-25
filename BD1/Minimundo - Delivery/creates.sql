@@ -1,7 +1,7 @@
 create table empresa (
 	id_empresa serial primary key,
     razao_social varchar(255),
-    cnpj varchar(15),
+    cnpj varchar(55),
     endereco varchar(255),
     email varchar(255)
 );
@@ -75,6 +75,7 @@ create table pedido (
     fk_cliente int,
     constraint cliente foreign key (fk_cliente) references cliente(id_cliente)
 );
+
 create table item_pedido (
 	id_item serial primary key,
     fk_pedido int,
