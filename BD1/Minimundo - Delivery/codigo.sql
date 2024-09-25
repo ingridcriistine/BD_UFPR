@@ -1,5 +1,5 @@
 create table empresa (
-	id int primary key serial,
+	id_empresa serial primary key,
     razao_social varchar(255),
     cnpj varchar(15),
     endereco varchar(255),
@@ -7,29 +7,29 @@ create table empresa (
 );
 
 create table entregador (
-	id int primary key serial,
+	id_entregador serial primary key,
     nome varchar(255),
     cpf varchar(15),
     data_nasc date,
     email varchar(255),
     veiculo varchar(255),
     fk_empresa int,
-    constraint empresa foreign key (fk_empresa) references empresa(id)
+    constraint empresa foreign key (fk_empresa) references empresa(id_empresa)
 );
 
 create table funcionario (
-	id int primary key serial,
+	id_funcionario serial primary key,
     nome varchar(255),
     cpf varchar(15),
     data_nasc date,
     email varchar(255),
     data_contratacao date,
     fk_empresa int,
-    constraint empresa foreign key (fk_empresa) references empresa(id)
+    constraint empresa foreign key (fk_empresa) references empresa(id_empresa)
 );
 
 create table cliente (
-	id int primary key serial,
+	id_cliente serial primary key,
     nome varchar(255),
     cpf varchar(15),
     data_nasc date,
@@ -38,60 +38,60 @@ create table cliente (
 );
 
 create table telefone (
-	id int primary key serial,
+	id_telefone serial primary key,
     ddd int,
     telefone varchar(50),
     fk_cliente int,
-    constraint cliente foreign key (fk_cliente) references cliente(id),
+    constraint cliente foreign key (fk_cliente) references cliente(id_cliente),
     fk_empresa int,
-    constraint empresa foreign key (fk_empresa) references empresa(id),
-    fk_func int,
-    constraint funcionario foreign key (fk_funcionario) references funcionario(id)
+    constraint empresa foreign key (fk_empresa) references empresa(id_empresa),
+    fk_funcionario int,
+    constraint funcionario foreign key (fk_funcionario) references funcionario(id_funcionario)
 );
 
 
 create table categoria (
-	id int primary key serial,
+	id_categoria serial primary key,
     nome varchar(255),
-    descricao varchar(255),
+    descricao varchar(255)
 );
 
 create table produto (
-	id int primary key serial,
+	id_produto serial primary key,
     nome varchar(255),
     descricao varchar(255),
     preco float,
     fk_categoria int,
-    constraint categoria foreign key (fk_categoria) references categoria(id)
+    constraint categoria foreign key (fk_categoria) references categoria(id_categoria)
 );
 
 create table pedido (
-	id int primary key serial,
+	id_pedido serial primary key,
     data_ped date,
     hora_ped time,
     preco_tot float,
     observacao varchar(255),
     status_ped varchar(55),
     fk_cliente int,
-    constraint cliente foreign key (fk_cliente) references cliente(id)
+    constraint cliente foreign key (fk_cliente) references cliente(id_cliente)
 );
 create table item_pedido (
-	id int primary key serial,
+	id_item serial primary key,
     fk_pedido int,
-    constraint pedido foreign key (fk_pedido) references pedido(id),
+    constraint pedido foreign key (fk_pedido) references pedido(id_pedido),
     fk_produto int,
-    constraint produto foreign key (fk_produto) references produto(id),
+    constraint produto foreign key (fk_produto) references produto(id_produto),
     quantidade int,
     preco float
 );
 
 create table notificacao (
-	id int primary key serial,
+	id_notificacao serial primary key,
     mensagem varchar(255),
     data_noti date,
     hora_noti time,
     fk_funcionario int,
-    constraint funcionario foreign key (fk_funcionario) references funcionario(id),
+    constraint funcionario foreign key (fk_funcionario) references funcionario(id_funcionario),
     fk_pedido int,
-    constraint pedido foreign key (fk_pedido) references pedido(id)
+    constraint pedido foreign key (fk_pedido) references pedido(id_pedido)
 );
